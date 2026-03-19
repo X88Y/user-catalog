@@ -11,7 +11,6 @@ interface UseUsersReturn {
   totalPages: number;
   isLoading: boolean;
   error: string | null;
-  query: string;
   searchInput: string;
   setSearchInput: (q: string) => void;
   submitSearch: () => void;
@@ -27,13 +26,13 @@ export function useUsers(): UseUsersReturn {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const load = useCallback(async (q: string, p: number) => {
+  const load = useCallback(async (query: string, page: number) => {
     setIsLoading(true);
     setError(null);
     try {
-      const skip = (p - 1) * PAGE_SIZE;
-      const data = q.trim()
-        ? await searchUsers(q.trim(), PAGE_SIZE, skip)
+      const skip = (page - 1) * PAGE_SIZE;
+      const data = query.trim()
+        ? await searchUsers(query.trim(), PAGE_SIZE, skip)
         : await fetchUsers(PAGE_SIZE, skip);
       setUsers(data.users);
       setTotal(data.total);
@@ -67,7 +66,6 @@ export function useUsers(): UseUsersReturn {
     totalPages,
     isLoading,
     error,
-    query,
     searchInput,
     setSearchInput,
     submitSearch,
