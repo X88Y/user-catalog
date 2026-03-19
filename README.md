@@ -9,7 +9,7 @@ A simple React + TypeScript app for browsing and searching users from the DummyJ
 ## Features
 
 - User grid with cards for profile, contact, location, and company info
-- Server-side pagination (12 users per page)
+- with paginated DummyJSON (12 users per page)
 - Search on demand (Search button or Enter) with automatic page reset
 - Loading skeletons, empty state, and error banner
 - Responsive layout with CSS Modules
