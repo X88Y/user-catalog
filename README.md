@@ -1,3 +1,7 @@
+# Deployed version
+
+https://user-catalog-one.vercel.app/
+
 # User Catalog
 
 A simple React + TypeScript app for browsing and searching users from the DummyJSON API.
